@@ -8,17 +8,17 @@ var gulp  = require('gulp'),
     browserSync = require('browser-sync').create(),
 
     input  = {
-      'sass': 'source/scss/**/*.scss',
-      'javascript': 'source/javascript/**/*.js',
-      'vendorjs': 'app/assets/javascript/vendor/**/*.js',
+      'sass': 'source/scss/*.scss',
+      'javascript': 'source/js/**/*.js',
+      'vendorjs': 'app/assets/js/vendor/**/*.js',
       'html': 'source/**/*.html',
-      'compiled' : 'app/assets/stylesheets/compiled/**/*.css'
+      'compiled' : 'app/assets/css/compiled/**/*.css'
     },
 
     output = {
-      'stylesheets': 'app/assets/stylesheets/compiled',
-      'css': 'app/assets/stylesheets/',
-      'javascript': 'app/assets/javascript',
+      'stylesheets': 'app/assets/css/compiled',
+      'css': 'app/assets/css/',
+      'javascript': 'app/assets/js',
       'html': 'app/**/*.html'
     };
 
@@ -43,7 +43,7 @@ gulp.task('jshint', function() {
 
 /* compile scss files */
 gulp.task('build-css', function() {
-  return gulp.src('source/scss/**/*.scss')
+  return gulp.src(input.sass)
     .pipe(sourcemaps.init())
       .pipe(sass())
     .pipe(sourcemaps.write())
