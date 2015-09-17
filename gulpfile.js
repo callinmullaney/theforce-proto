@@ -5,7 +5,7 @@ var gulp  = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     concat     = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
-    browserSync = require('browser-sync'),
+    browserSync = require('browser-sync').create(),
 
     input  = {
       'sass': 'source/scss/**/*.scss',
@@ -45,7 +45,7 @@ gulp.task('jshint', function() {
 gulp.task('build-css', function() {
   return gulp.src('source/scss/**/*.scss')
     .pipe(sourcemaps.init())
-      .pipe(sass({outputStyle: 'compressed'}))
+      .pipe(sass())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(output.stylesheets));
 });
@@ -77,17 +77,16 @@ gulp.task('copyHtml', function() {
 });
 
 /* Run Browser-sync to reload the browser after a new sass file is compiled */
-gulp.task('browser-sync', function () {
-  var files = [
-    'app/*.html',
-    'app/assets/stylesheets/**/*.css',
-    'app/assets/javascript/**/*.js',
-    'app/assets/javascript/vendor/**/*.js'
-  ];
-
-  browserSync.init(files, {
-    server: {
-       baseDir: './app'
-    }
+// Static Server + watching scss/html files
+gulp.task('serve', ['build-css'], function() {
+  browserSync.init({
+      server: "./app"
   });
+  gulp.watch(input.javascript, ['jshint', 'build-js']).on('change', browserSync.reload);
+  gulp.watch(input.sass, ['build-css']).on('change', browserSync.reload);
+  gulp.watch(input.html, ['copyHtml']).on('change', browserSync.reload);
+  gulp.watch(input.compiled, ['minify-css']).on('change', browserSync.reload);
+  gulp.watch("app/*.html").on('change', browserSync.reload);
 });
+
+gulp.task('default', ['serve']);
