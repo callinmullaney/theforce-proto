@@ -10,49 +10,81 @@
     margin: 3rem 0 0;
     padding: 0;
     list-style: none;
+    border-top: 1px solid rgba(0,0,0,0.1);
     
-    a,
-    span.nolink {
-      display: block;
-      color: $white;
-      width: 100%;
-      padding: 0 1.33rem;
-      line-height: 3rem;
-      white-space: nowrap;
-      @include transition(all .3s ease-in-out);
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      border-left: 1px solid transparent;
-      cursor: pointer;
+    li {
+      position: relative;
 
-      &:hover {
-        background: #000;
-        border-left: 3px solid $blue;
+      &.drop {
+        .label + i {
+          font-size: 0.8rem;
+          display: block;
+          position: absolute;
+          right: 0;
+          margin: 0;
+          opacity: 0;
+          top: 1.25rem;
+        }
       }
 
-      i {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 1rem;
-        font-size: 1.5rem;
-      }
+      a,
+      span.nolink {
+        display: block;
+        color: $white;
+        width: 100%;
+        padding: 0 1.66rem;
+        line-height: 3rem;
+        white-space: nowrap;
+        @include transition(all .3s ease-in-out);
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        border-left: 1px solid transparent;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        cursor: pointer;
 
-      span.label {
-        opacity: 0;
-        @include transition(all .3s .2s ease-in-out);
-      }
-    } // a, span.nolink
+        &:hover {
+          background: rgba(0,0,0,0.2);
+          border-left: 3px solid $blue;
+        }
+
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 1.66rem;
+          min-width: 2rem;
+          @include transition(all .3s ease-in-out);
+        }
+
+        span.label {
+          opacity: 0;
+          font-size: 0.8rem;
+          @include transition(all .3s ease-in-out);
+        }
+
+      } // a, span.nolink
+
+    } // li
 
   } // ul.menu
 
   &:hover,
   .theforce-open & {
-    ul.menu {
+    ul.menu li {
+
+      &.drop {
+        .label + i {
+          opacity: 1;
+        }
+      }
+
       a,
       span.nolink {
         span.label {
           opacity: 1;
+        }
+        i {
+          margin-right: 1rem;
         }
       }
     } // ul.menu

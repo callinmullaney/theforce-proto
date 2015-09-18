@@ -5,7 +5,7 @@
 
 // Styles
 body.theforce {
-  margin-left: 4rem;
+  padding-left: 5rem;
   @include bgGradient();
   @include transition(all .3s ease-in-out);
 
@@ -20,7 +20,8 @@ body.theforce {
   }
 
   &.theforce-open {
-    padding: 3rem 1rem 1rem 20rem;
+    padding: 4rem 1rem 1rem 20rem;
+    overflow: hidden;
 
     #theforce {
       width: 20rem;
@@ -35,7 +36,7 @@ body.theforce {
       z-index: 11;
       box-shadow: 0 0 10px rgba(0,0,0,0.75);
       overflow: scroll;
-      max-height: 94.5vh;
+      max-height: 92vh;
     }
 
   } // &.theforce-open
@@ -45,7 +46,7 @@ body.theforce {
   position: fixed;
   top: 0;
   left: 0;
-  width: 4rem;
+  width: 5rem;
   height: 100vh;
   z-index: 10;
   box-shadow: 0 0 0 rgba(0,0,0,0);
