@@ -3,33 +3,43 @@
 @import "variables";
 
 body.theforce {
-  margin-left: 60px;
+  margin-left: 4rem;
   @include bgGradient();
   @include transition(all .3s ease-in-out);
 
   &.theforce-open {
-    margin: 60px 0 0px 260px;
+    margin: 3rem 0 0 20rem;
 
+    #theforce {
+      width: 20rem;
+
+      &:hover {
+        width: 20rem;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+      }
+    }
+  
     #page {
-      height: 100%;
+      z-index: 11;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
   }
 }
 
 #theforce {
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
-  width: 60px;
+  width: 4rem;
   height: 100vh;
-  z-index:1000; 
-  box-shadow: 0 0 2px rgba(0,0,0,0);
+  z-index: 10;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
   @include bgGradient();
   @include transition(all .3s ease-in-out);
   overflow: hidden;
 
   &:hover {
-    width: 200px;
+    width: 10rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
 }
