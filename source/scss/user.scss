@@ -1,0 +1,31 @@
+// import mixins and variables
+@import "mixins";
+@import "variables";
+
+#theforce {
+  .user {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+
+    img {
+      border-radius: 10rem;
+      overflow: hidden;
+    }
+
+    span {
+      opacity: 0;
+      @include transition(all .3s ease-in-out);
+    }
+  }
+
+  &:hover,
+  .theforce-open & {
+    .user {
+      span {
+        opacity: 1;
+      }
+    }
+  } // :hover, .theforce-open &
+
+} // #theforce

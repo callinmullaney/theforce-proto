@@ -1,0 +1,61 @@
+// import mixins and variables
+@import "mixins";
+@import "variables";
+
+
+// Styles
+#theforce {
+  
+  ul.menu {
+    margin: 3rem 0 0;
+    padding: 0;
+    list-style: none;
+    
+    a,
+    span.nolink {
+      display: block;
+      color: $white;
+      width: 100%;
+      padding: 0 1.33rem;
+      line-height: 3rem;
+      white-space: nowrap;
+      @include transition(all .3s ease-in-out);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-left: 1px solid transparent;
+      cursor: pointer;
+
+      &:hover {
+        background: #000;
+        border-left: 3px solid $blue;
+      }
+
+      i {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+      }
+
+      span.label {
+        opacity: 0;
+        @include transition(all .3s .2s ease-in-out);
+      }
+    } // a, span.nolink
+
+  } // ul.menu
+
+  &:hover,
+  .theforce-open & {
+    ul.menu {
+      a,
+      span.nolink {
+        span.label {
+          opacity: 1;
+        }
+      }
+    } // ul.menu
+  } // :hover, .theforce-open &
+
+}

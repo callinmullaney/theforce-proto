@@ -2,13 +2,25 @@
 @import "mixins";
 @import "variables";
 
+
+// Styles
 body.theforce {
   margin-left: 4rem;
   @include bgGradient();
   @include transition(all .3s ease-in-out);
 
+  #page {
+    position: relative;
+    z-index: 1;
+    background-color: $gray-light;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    max-height: 100vh;
+    overflow: scroll;
+    @include transition(all .3s ease-in-out);
+  }
+
   &.theforce-open {
-    margin: 3rem 0 0 20rem;
+    padding: 3rem 1rem 1rem 20rem;
 
     #theforce {
       width: 20rem;
@@ -21,10 +33,13 @@ body.theforce {
   
     #page {
       z-index: 11;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0,0,0,0.75);
+      overflow: scroll;
+      max-height: 94.5vh;
     }
-  }
-}
+
+  } // &.theforce-open
+} // body.theforce
 
 #theforce {
   position: fixed;
@@ -42,4 +57,5 @@ body.theforce {
     width: 10rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
-}
+
+} // #theforce
