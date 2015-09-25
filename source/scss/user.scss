@@ -2,27 +2,41 @@
 @import "mixins";
 @import "variables";
 
-#theforce {
+#theforcetop {
   .user {
-    margin: 0 0 1rem;
+    margin: 0;
     padding: 0;
     list-style: none;
 
     img {
+      border: 7px solid rgba(0, 0, 0, 0.3);
       border-radius: 10rem;
+      display: table-cell;
+      margin: -1rem 1rem 0 0;
+      max-width: 6rem;
       overflow: hidden;
-      max-width: 5rem;
-      display: block;
-      margin: 0 auto;
-      padding: 0.5rem;
+      padding: 0.33rem;
+      float: left;
+    }
+
+    a { 
+      display: table;
     }
 
     span {
       opacity: 0;
-      display: block;
+      display: table-cell;
+      float: left;
+      line-height: 4rem;
       white-space: nowrap;
-      text-align: center;
+      color: #ddd;
+      margin: 0 1rem 0 0;
       @include transition(all .3s ease-in-out);
+    }
+
+    i {
+      line-height: 4rem;
+      padding: 0 1rem 0 0;
     }
   }
 

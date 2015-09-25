@@ -6,6 +6,7 @@ var gulp  = require('gulp'),
     concat     = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create(),
+    bourbon = require('node-bourbon'),
 
     input  = {
       'sass': 'source/scss/*.scss',
@@ -33,7 +34,7 @@ gulp.task('jshint', function() {
 gulp.task('build-css', function() {
   return gulp.src(input.sass)
     .pipe(sourcemaps.init())
-      .pipe(sass())
+      .pipe(sass({includePaths: require('node-bourbon').includePaths}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(output.stylesheets));
 });

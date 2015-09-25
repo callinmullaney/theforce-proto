@@ -31,6 +31,10 @@
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.6",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.0.1",
+    "node-bourbon": "^4.2.3"
+  },
+  "dependencies": {
+    "node-sass": "^3.3.3"
   }
 }

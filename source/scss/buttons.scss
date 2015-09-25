@@ -1,3 +1,73 @@
-li a {
+// import mixins and variables
+@import "mixins";
+@import "variables";
+@import "bourbon";
 
+.ink-wrap{
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  pointer-events:none;
+
+  .ink {
+   display: block;
+   position: absolute;
+   background: rgba(0,0,0,0.4);
+   border-radius: 100%;
+   @include transform(scale(0));
+
+   &.animate{
+     @include animation(ripple 0.65s linear);
+   }
+  }
+}
+@include keyframes(ripple) {
+ from {
+   opacity: 1;
+   @include transform(scale(0));
+ }
+ to {
+   opacity: 0;
+   @include transform(scale(2.5));
+ }
+}
+
+.ops-bar {
+  a {
+    display: block;
+    position: relative;
+    border-radius: 20rem;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    margin: 0.25rem auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+
+    i {
+      line-height: 3.333rem;
+      width: 3.333rem;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    &.edit {
+      background-color: $green;
+      border: 6px solid darken($green, 5%);
+      text-shadow: 0 1px 4px darken($green, 10%);
+    }
+    &.delete {
+      background-color: $red;
+      border: 6px solid darken($red, 5%);
+      text-shadow: 0 1px 4px darken($red, 10%);
+    }
+  }
 }

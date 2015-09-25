@@ -10,7 +10,7 @@
     margin: 3rem 0 0;
     padding: 0;
     list-style: none;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.2);
     
     li {
       position: relative;
@@ -40,7 +40,7 @@
         text-transform: uppercase;
         letter-spacing: .06em;
         border-left: 1px solid transparent;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.2);
         cursor: pointer;
 
         &:hover {
